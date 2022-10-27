@@ -32,7 +32,7 @@ def load_bank_data():
     """
 
     csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
-    csvpath = (csvpath)
+    csvpath = Path(csvpath)
     if not csvpath.exists():
         sys.exit(f"Oops! Can't find this path: {csvpath}")
 
@@ -110,8 +110,13 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
-  if __yes__ == "__save__":
-    fire.Fire(run)
+
+save_loan = questionary.text("would you want to save the qualifying loans:").ask()
+csvsave = Path(csvsave)
+if save_loan =="yes":
+    syst.exit(f"thank you, have a god day: {csvsave}")
+return save_qualifying_loans(save_loan)
+
 
 def run():
     """The main function for running the script."""
